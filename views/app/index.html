@@ -1,6 +1,7 @@
 <import: src="./home">
 <import: src="./list">
 <import: src="./textarea">
+<import: src="./upload-image">
 
 <!--
   Derby templates are similar to Handlebars, except that they are first
@@ -31,6 +32,7 @@
             <app:navLink title="Home" href="/">
             <app:navLink title="List" href="/list">
             <app:navLink title="Text Area" href="/textarea">
+            <app:navLink title="Image Upload" href="/upload-image">
           </ul>
         </div>
       </div>
@@ -38,15 +40,6 @@
   </div>
   <div class="content">
     <div class="container">
-
-<Footer:>
-    </div>
-  </div>
-  <footer>
-    <div class="container">
-      <p>&copy; Company 2012</p>
-    </div>
-  </footer>
 
 <navLink:>
   <li class="{{#if equal($url, @href)}}active{{/}}">
