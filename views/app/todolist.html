@@ -1,2 +1,53 @@
+<Title:>
+  Todos
+
 <Body:>
-	<h1>Draggable (and Addable) Reference List Component!</h1>
+  <div id="overlay"></div>
+
+  <!--x-bind on the form: on submit where input with id "add-button" has type="submit", call function add-->
+  <form id="head" x-bind="submit: add">
+
+    <h1>Todos <span>{remaining(_page.list)} remaining</span></h1>
+    <div id="add">
+      
+      <!--CREATING A NEW TODO-->
+      <div id="add-input"><input id="new-todo" value="{_page.newTodo}"></div>
+      
+      <!-- Add/Submit Button-->
+      <input id="add-button" type="submit" value="Add">
+
+    </div>
+  </form>
+  <div id="dragbox"></div>
+  <div id="todos">
+    {#each _page.list as :todo}
+      <app:todo>
+    {/}
+  </div>
+
+
+<!-- a todo item-->
+<todo:>
+  <table class="{#if :todo.completed}completed{/}">
+
+    <!--the drag and drop handle-->
+    <td class="handle" width="0"></td>
+
+
+    <td width="100%">
+      <div class="todo">
+
+        <!-- the todo's checkbox -->
+        <label><input type="checkbox" checked="{:todo.completed}"><i></i></label>
+        
+        <!-- the todo's text field -->
+        <input class="text" value="{:todo.text}"><i></i>
+
+      </div>
+    </td>
+    <td width="0">
+
+      <!-- the todo's delete button (x-bind on the button): on click of this button, call function del-->
+      <button class="delete" x-bind="click: del">Delete</button>
+    </td>
+  </table>
