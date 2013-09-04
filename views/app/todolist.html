@@ -18,13 +18,13 @@
 
     </div>
   </form>
-  <div id="dragbox"></div>
-  <div id="todos">
-    {#each _page.list as :todo}
-      <app:todo>
-    {/}
+  <div id="dragbox">
+    <div id="todos">
+      {#each _page.list as :todo}
+        <app:todo>
+      {/}
+    </div>
   </div>
-
 
 <!-- a todo item-->
 <todo:>
@@ -34,7 +34,7 @@
     <td class="handle" width="0"></td>
 
 
-    <td width="100%">
+    <td>
       <div class="todo">
 
         <!-- the todo's checkbox -->
